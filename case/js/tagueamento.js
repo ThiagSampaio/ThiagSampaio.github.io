@@ -22,14 +22,13 @@ const bt_dowload = document.getElementById("btn-dowload")
 const name_form = document.getElementById('nome')
 const email_form = document.getElementById('email')
 const telefone_form = document.getElementById('telefone')
-const confirm_check_form = document.getElementById('aceito')
+
 
 bt_contato.onclick = sendContatoEvent
 bt_dowload.onclick = sendDownloadEvent
 name_form.onblur = sendNameEvent
 email_form.onblur = sendEmailEvent
 telefone_form.onblur = sendTelEvent
-confirm_check_form.onclick = sendCheckFormEvent
 
 
 
@@ -89,13 +88,15 @@ function sendTelEvent() {
     });
 }
 
-function sendCheckFormEvent() {
-    ga("send", {
-        hitType: "event",
-        eventCategory: "contato",
-        eventAction: "aceito",
-        eventLabel: "preencheu"
-    });
+function check_box(obj) {
+    if ($(obj).is(":checked")) {
+        ga("send", {
+            hitType: "event",
+            eventCategory: "contato",
+            eventAction: "aceito",
+            eventLabel: "preencheu"
+        });
+    } else {
+        console.log('desmarcado')
+    }
 }
-
-
