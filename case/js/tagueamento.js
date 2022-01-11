@@ -19,6 +19,7 @@ ga('send', 'pageview');
 
 const bt_contato = document.getElementById("btn-contato")
 const bt_dowload = document.getElementById("btn-dowload")
+//const name_form = document.getElementById
 
 bt_contato.onclick = sendContatoEvent
 bt_dowload.onclick = sendDownloadEvent
