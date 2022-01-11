@@ -38,3 +38,14 @@ function sendDownloadEvent() {
         eventLabel: "download_pdf"
     });
 }
+
+$(".card-montadoras").each(function () {
+    $(this).on("click", () => {
+        ga("send", {
+            hitType: "event",
+            eventCategory: "analise",
+            eventAction: "ver_mais",
+            eventLabel: $(this).data('name')
+        });
+    });
+});
