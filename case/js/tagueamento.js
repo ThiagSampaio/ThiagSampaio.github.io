@@ -21,11 +21,13 @@ const bt_contato = document.getElementById("btn-contato")
 const bt_dowload = document.getElementById("btn-dowload")
 const name_form = document.getElementById('nome')
 const email_form = document.getElementById('email')
+const telefone_form = document.getElementById('telefone')
 
 bt_contato.onclick = sendContatoEvent
 bt_dowload.onclick = sendDownloadEvent
 name_form.onblur = sendNameEvent
 email_form.onblur = sendEmailEvent
+telefone_form.onblur = sendTelEvent
 
 
 
@@ -75,4 +77,14 @@ function sendEmailEvent() {
         eventLabel: "preencheu"
     });
 }
+
+function sendTelEvent() {
+    ga("send", {
+        hitType: "event",
+        eventCategory: "contato",
+        eventAction: "telefone",
+        eventLabel: "preencheu"
+    });
+}
+
 
