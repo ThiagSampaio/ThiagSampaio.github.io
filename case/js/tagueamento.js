@@ -19,10 +19,12 @@ ga('send', 'pageview');
 
 const bt_contato = document.getElementById("btn-contato")
 const bt_dowload = document.getElementById("btn-dowload")
-//const name_form = document.getElementById
+const name_form = document.getElementById('nome')
 
 bt_contato.onclick = sendContatoEvent
 bt_dowload.onclick = sendDownloadEvent
+name_form.onblur = sendNameEvent
+
 
 function sendContatoEvent() {
     ga("send", {
@@ -52,3 +54,12 @@ $(".card-montadoras").each(function () {
         });
     });
 });
+
+function sendNameEvent() {
+    ga("send", {
+        hitType: "event",
+        eventCategory: "contato",
+        eventAction: "nome",
+        eventLabel: "preencheu"
+    });
+}
