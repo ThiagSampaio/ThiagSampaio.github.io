@@ -16,8 +16,10 @@ ga('create', 'UA-12345-6', 'auto');
 ga('send', 'pageview');
 
 const bt_contato = document.getElementById("btn-contato")
+const bt_dowload = document.getElementById("btn-dowload")
 
 bt_contato.onclick = sendContatoEvent
+bt_dowload.onclick = sendDownloadEvent
 
 function sendContatoEvent() {
     ga("send", {
@@ -25,5 +27,14 @@ function sendContatoEvent() {
         eventCategory: "menu",
         eventAction: "entre_em_contato",
         eventLabel: "link_externo"
+    });
+}
+
+function sendDownloadEvent() {
+    ga("send", {
+        hitType: "event",
+        eventCategory: "menu",
+        eventAction: "download_pdf",
+        eventLabel: "download_pdf"
     });
 }
