@@ -22,6 +22,7 @@ const bt_dowload = document.getElementById("btn-dowload")
 const name_form = document.getElementById('nome')
 const email_form = document.getElementById('email')
 const telefone_form = document.getElementById('telefone')
+const enviar_form = document.getElementById('enviar')
 
 
 bt_contato.onclick = sendContatoEvent
@@ -29,6 +30,7 @@ bt_dowload.onclick = sendDownloadEvent
 name_form.onblur = sendNameEvent
 email_form.onblur = sendEmailEvent
 telefone_form.onblur = sendTelEvent
+enviar_form.onclick = sendEnviarEvent
 
 
 
@@ -99,4 +101,13 @@ function check_box(obj) {
     } else {
         console.log('desmarcado')
     }
+}
+
+function sendEnviarEvent() {
+    ga("send", {
+        hitType: "event",
+        eventCategory: "contato",
+        eventAction: "enviado",
+        eventLabel: "enviado"
+    });
 }
