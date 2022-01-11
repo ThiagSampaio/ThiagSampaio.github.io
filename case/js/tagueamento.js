@@ -14,3 +14,16 @@
 
 ga('create', 'UA-12345-6', 'auto');
 ga('send', 'pageview');
+
+const bt_contato = document.getElementById("btn-contato")
+
+bt_contato.onclick = sendContatoEvent
+
+function sendContatoEvent() {
+    ga("send", {
+        hitType: "event",
+        eventCategory: "menu",
+        eventAction: "entre_em_contato",
+        eventLabel: "link_externo"
+    });
+}
