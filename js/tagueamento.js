@@ -17,22 +17,12 @@
 ga('create', 'UA-12345-6', 'auto');
 ga('send', 'pageview');
 
-const bt_contato = document.getElementById("btn-contato")
-const bt_dowload = document.getElementById("btn-dowload")
-const name_form = document.getElementById('nome')
-const email_form = document.getElementById('email')
-const telefone_form = document.getElementById('telefone')
-const enviar_form = document.getElementById('enviar')
-
-
-bt_contato.onclick = sendContatoEvent
-bt_dowload.onclick = sendDownloadEvent
-name_form.onblur = sendNameEvent
-email_form.onblur = sendEmailEvent
-telefone_form.onblur = sendTelEvent
-enviar_form.onclick = sendEnviarEvent
-
-
+$("#btn-contato").on("click", () => sendContatoEvent())
+$("#btn-download").on("click", () => sendDownloadEvent())
+$("#nome").on("click", () => sendNameEvent())
+$("#email").on("click", () => sendEmailEvent())
+$("#telefone").on("click", () => sendTelEvent())
+$("#enviar").on("click", () => sendEnviarEvent())
 
 function sendContatoEvent() {
     ga("send", {
@@ -52,6 +42,8 @@ function sendDownloadEvent() {
     });
 }
 
+
+
 $(".card-montadoras").each(function () {
     $(this).on("click", () => {
         ga("send", {
@@ -62,6 +54,7 @@ $(".card-montadoras").each(function () {
         });
     });
 });
+
 
 function sendNameEvent() {
     ga("send", {
