@@ -20,10 +20,13 @@ ga('send', 'pageview');
 const bt_contato = document.getElementById("btn-contato")
 const bt_dowload = document.getElementById("btn-dowload")
 const name_form = document.getElementById('nome')
+const email_form = document.getElementById('email')
 
 bt_contato.onclick = sendContatoEvent
 bt_dowload.onclick = sendDownloadEvent
 name_form.onblur = sendNameEvent
+email_form.onblur = sendEmailEvent
+
 
 
 function sendContatoEvent() {
@@ -63,3 +66,13 @@ function sendNameEvent() {
         eventLabel: "preencheu"
     });
 }
+
+function sendEmailEvent() {
+    ga("send", {
+        hitType: "event",
+        eventCategory: "contato",
+        eventAction: "email",
+        eventLabel: "preencheu"
+    });
+}
+
